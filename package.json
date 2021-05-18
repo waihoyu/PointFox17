@@ -1,0 +1,33 @@
+{
+  "name": "book",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "abc": "vue-cli-service serve"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "core-js": "^3.6.5",
+    "echarts": "^5.1.1",
+    "element-ui": "^2.15.1",
+    "less": "^3.0.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
