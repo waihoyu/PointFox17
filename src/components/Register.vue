@@ -45,12 +45,13 @@ export default {
         Axios.post(url + '/register',{
           params:this.newUser
         }).then((response)=>{
-            if(response.data.state =="success"){
-              this.$message('注册用户成功');
-            }
-            else{
-               this.$message('注册用户失败');
-            }         
+          console.log(response)
+            // if(response.data.state =="success"){
+            //   this.$message('注册用户成功');
+            // }
+            // else{
+            //    this.$message('注册用户失败');
+            // }         
         })
       }
     }
