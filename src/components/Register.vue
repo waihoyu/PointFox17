@@ -6,7 +6,7 @@
           <span>用户注册</span>
         </div>
         <div id="registerContentBody">
-            <el-input id="newusername" v-model="newUser.newusername" clearable></el-input>
+            <el-input id="newusername" v-model="newUser.newusername" clearable @blur="checkUsername"></el-input>
             <el-input id="newpassword" v-model="newUser.newpassword" show-password clearable></el-input>
         </div>
         <!--  v-loading.fullscreen.lock="fullscreenLoading" -->
@@ -33,16 +33,9 @@ export default {
         }
     },
     methods:{
-      // CORS 
-      registerSystem(){     
-        // Axios.get(url +'/register',{
-        //   params: this.newUser
-        // }).then(function(response){
-        //   alert(response.data.state + '\n' +response.data.message )
-        // })
-        // this.fullscreenLoading = true;
-        // that = this
-        Axios.post(url + '/register',{
+
+      checkUsername(){
+        Axios.post(url + '/register/check',{
           params:this.newUser
         }).then((response)=>{
           console.log(response)
@@ -53,6 +46,17 @@ export default {
             //    this.$message('注册用户失败');
             // }         
         })
+      },
+      // CORS 
+      registerSystem(){     
+        // Axios.get(url +'/register',{
+        //   params: this.newUser
+        // }).then(function(response){
+        //   alert(response.data.state + '\n' +response.data.message )
+        // })
+        // this.fullscreenLoading = true;
+        // that = this
+
       }
     }
 };
