@@ -4,7 +4,7 @@
       <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>用户注册</span>
-          <span id="checkTip" v-text="checktip"></span>
+          <span id="checkTip" v-text="checktip" :class="flag?tipRed:tipGreen"></span>
         </div>
         <div id="registerContentBody">
             <el-input id="newusername" v-model="newUser.newusername" clearable @blur="checkUsername"></el-input>
@@ -31,7 +31,10 @@ export default {
                 newpassword:""
             },
             fullscreenLoading: false,
-            checktip:""
+            checktip:"",
+            flag:false,
+            tipRed:"tipRed",
+            tipGreen:"tipGreen",
         }
     },
     methods:{
@@ -40,6 +43,11 @@ export default {
           params:this.newUser
         }).then((response)=>{
           // console.log(response)
+          if(response.data.state =="success"){
+            this.flag = false
+          }else{
+            this.flag = true
+          }
           this.checktip = response.data.message
             // if(response.data.state =="success"){
             //   this.$message('注册用户成功');
@@ -89,5 +97,11 @@ export default {
 #checkTip{
   /* background-color: red; */
   margin-left: 50px;
+}
+.tipRed{
+  color:red;
+}
+.tipGreen{
+  color:green;
 }
 </style>
