@@ -4,6 +4,7 @@
       <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>用户注册</span>
+          <span id="checkTip" v-text="checktip"></span>
         </div>
         <div id="registerContentBody">
             <el-input id="newusername" v-model="newUser.newusername" clearable @blur="checkUsername"></el-input>
@@ -29,16 +30,17 @@ export default {
                 newusername:"",
                 newpassword:""
             },
-            fullscreenLoading: false
+            fullscreenLoading: false,
+            checktip:""
         }
     },
     methods:{
-
       checkUsername(){
         Axios.post(url + '/register/check',{
           params:this.newUser
         }).then((response)=>{
-          console.log(response)
+          // console.log(response)
+          this.checktip = response.data.message
             // if(response.data.state =="success"){
             //   this.$message('注册用户成功');
             // }
@@ -83,5 +85,9 @@ export default {
 #newpassword{
   margin-top:5px;
   margin-bottom: 8px;
+}
+#checkTip{
+  /* background-color: red; */
+  margin-left: 50px;
 }
 </style>
