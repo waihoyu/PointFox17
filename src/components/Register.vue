@@ -45,7 +45,7 @@ export default {
   name:"register",
     data(){
         return {
-            disabled:true,
+            disabled:false,
             newUser:{
                 newusername:"",
                 newpassword:""
@@ -65,7 +65,8 @@ export default {
           console.log(response)
           if(response.data.state =="success"){            
             this.flag = false
-            this.disabled = false          
+            this.disabled = false
+         
           }else{
             this.flag = true
             this.disabled =true
@@ -90,6 +91,10 @@ export default {
           this.newUser.newusername=""
           this.newUser.newpassword=""
           this.checktip="" 
+          setTimeout(()=>{
+            console.log("router")
+              this.$router.push({ path: '/registertips' })
+          },3000)
         }})
         // this.fullscreenLoading = true;
         // that = this

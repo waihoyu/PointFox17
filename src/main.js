@@ -11,8 +11,15 @@ import Book from './components/Book.vue'
 import CNNode2 from './components/CNNode2.vue'
 import Register from './components/Register.vue'
 import Index from './components/Index.vue'
+import RegisterTips from './components/RegisterTips.vue'
+
+
 
 const routes = [
+  {
+    path:"/registertips",
+    component:RegisterTips
+  },
   {
     path:"/",
     component:Index
